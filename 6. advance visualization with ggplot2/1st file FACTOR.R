@@ -160,3 +160,58 @@ w + geom_point(size=3) + facet_grid(Genre~.)
 w + geom_point(size=3) + facet_grid(.~Year)
 
 w + geom_point(size=3) + facet_grid(Genre~Year)
+
+
+
+
+
+
+#------ coordinates
+
+m<- ggplot(data=movies,aes(x=CriticRating, y=AudienceRating, size=BudegtMillions, colour=Genre))
+m+ geom_point()
+
+m + geom_point()+ xlim(50,100)+ ylim(50,100)
+
+#won't work well always 
+
+n<- ggplot(data=movies, aes(x=BudegtMillions))
+n+ geom_histogram(binwidth = 10,aes(fill=Genre), color="Black")
+
+n+ geom_histogram(binwidth = 10,aes(fill=Genre), color="Black") +ylim(0,50)
+
+
+#in above we see the data was removed 
+# we use zoom now 
+n+ geom_histogram(binwidth = 10,aes(fill=Genre), color="Black") +coord_cartesian(ylim=c(0,50))
+
+
+
+
+#-------Theme
+o<- ggplot(data=movies,aes(x=BudegtMillions))
+h<- o+ geom_histogram(binwidth = 10,aes(fill=Genre),colour="Black")
+h
+
+
+#axes labels
+h+ xlab("Money Axis")+ ylab("Number of Movies")
+
+
+#label formatting 
+h+ xlab("Money Axis")+ ylab("Number of Movies") +
+  theme(axis.title.x= element_text(colour="DarkGreen",size=30),
+        axis.title.y= element_text(colour="Red",size=30))
+
+
+
+#tick mark formatting
+h+ xlab("Money Axis")+ ylab("Number of Movies") +
+  theme(axis.title.x= element_text(colour="DarkGreen",size=30),
+        axis.title.y= element_text(colour="Red",size=30),
+        axis.text.x= element_text(size=20),
+        axis.text.y=element_text(size=20))
+
+
+
+
