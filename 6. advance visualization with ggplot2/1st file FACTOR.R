@@ -128,4 +128,12 @@ t<- ggplot(data=movies)
 t+ geom_histogram(binwidth = 10, aes(x=AudienceRating), fill="White", colour="Blue")
 
 
+#----- Statistical Transformations
 
+u<-ggplot(data=movies, aes(x=CriticRating, y=AudienceRating, colour=Genre))
+u+ geom_point()+geom_smooth(fill=NA)
+
+#BOX PLOTS
+u<- ggplot(data=movies, aes(x=Genre,y=AudienceRating,colour=Genre))
+u+ geom_boxplot()
+u+ geom_boxplot(size=1.2)+ geom_point()
