@@ -137,3 +137,26 @@ u+ geom_point()+geom_smooth(fill=NA)
 u<- ggplot(data=movies, aes(x=Genre,y=AudienceRating,colour=Genre))
 u+ geom_boxplot()
 u+ geom_boxplot(size=1.2)+ geom_point()
+
+
+#------------ Using Facets
+
+v<- ggplot(data=movies, aes(x=BudegtMillions))
+v+ geom_histogram(binwidth = 10, aes(fill=Genre),colour="Black")
+
+#facets
+v+ geom_histogram(binwidth = 10, aes(fill=Genre),colour="Black")+ facet_grid(Genre~.,scales="free")
+
+
+
+#scatterplots:
+w<- ggplot(data=movies, aes(x=CriticRating,y=AudienceRating,colour=Genre))
+w + geom_point(size=3)
+
+#facets
+
+w + geom_point(size=3) + facet_grid(Genre~.)
+
+w + geom_point(size=3) + facet_grid(.~Year)
+
+w + geom_point(size=3) + facet_grid(Genre~Year)
