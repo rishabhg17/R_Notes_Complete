@@ -61,3 +61,26 @@ p+ geom_line()
 #multiple layers
 p+geom_point()+geom_line()
 p+geom_line()+geom_point()
+
+
+
+#overriding aesthetics
+
+q<-ggplot(data=movies, aes(x=CriticRating,y=AudienceRating, colour=Genre,size=BudegtMillions))
+
+
+#add geom layer
+q+ geom_point()
+
+#over riding aes
+#example 1
+q+ geom_point(aes(size=CriticRating))
+
+#ex2
+q+ geom_point(aes(colour=BudegtMillions))
+
+#ex3
+q+ geom_point(aes(x=BudegtMillions)) + xlab("Budget Millions $$$")
+
+#ex4
+q+ geom_line(size=1)+ geom_point()
