@@ -84,3 +84,17 @@ q+ geom_point(aes(x=BudegtMillions)) + xlab("Budget Millions $$$")
 
 #ex4
 q+ geom_line(size=1)+ geom_point()
+
+
+
+
+#---------- Mapping vs Setting 
+
+r<- ggplot(data=movies, aes(x=CriticRating, y=AudienceRating))
+r + geom_point()
+
+#Add colour
+#1. Mapping (what we've done so far):
+r+ geom_point(aes(colour=Genre))
+#2. Setting:
+r+ geom_point(colour="DarkGreen")
