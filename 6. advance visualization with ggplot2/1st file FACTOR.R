@@ -98,3 +98,34 @@ r + geom_point()
 r+ geom_point(aes(colour=Genre))
 #2. Setting:
 r+ geom_point(colour="DarkGreen")
+
+
+#------ Histograms and Density Charts
+
+s<- ggplot(data=movies, aes(x=BudegtMillions))
+s + geom_histogram(binwidth = 10)
+
+#add colour 
+s+ geom_histogram(binwidth = 10, aes(fill=Genre))
+#add a border
+s+ geom_histogram(binwidth = 10, aes(fill=Genre), colour="Black")
+
+
+#sometimes we may need density charts
+s+ geom_density(aes(fill=Genre))
+s+ geom_density(aes(fill=Genre), position="stack")
+
+
+
+
+#------ starting layer tips
+
+t<- ggplot(data=movies,aes(x=AudienceRating))
+t + geom_histogram(binwidth=10, fill="white", colour="Blue")
+
+#another way
+t<- ggplot(data=movies)
+t+ geom_histogram(binwidth = 10, aes(x=AudienceRating), fill="White", colour="Blue")
+
+
+
